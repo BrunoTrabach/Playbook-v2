@@ -1,33 +1,48 @@
-<div id="page-sobre" class="app-page">
+<div class="page-wrapper">
+  <h2 class="page-title">ℹ️ Sobre</h2>
+  <p class="page-subtitle">A marca e quem representa</p>
 
-  <h2 class="section-title">
-    🧭 Sobre
-  </h2>
-
-  <div class="tabs-container">
-
-    <button
-      class="tab-btn active-tab"
-      onclick="switchSubTab('sobre-aiwa', this)"
-    >
-      Sobre AIWA
-    </button>
-
-    <button
-      class="tab-btn"
-      onclick="switchSubTab('sobre-promotor', this)"
-    >
-      Sobre o Promotor
-    </button>
-
+  <div class="tab-bar">
+    <button class="tab-btn active-tab" onclick="switchSubTab('sobre-aiwa', this)">AIWA</button>
+    <button class="tab-btn" onclick="switchSubTab('sobre-promotor', this)">Promotor</button>
   </div>
 
-  <div id="content-sobre-aiwa" class="tab-content">
-    <!-- include: sobre_aiwa.html -->
+  <div id="content-sobre-aiwa" class="tab-content" style="display:block;">
+    <div class="card">
+      <h3 style="color:var(--accent-red);margin-bottom:12px;">🇯🇵 AIWA — Japanese Technology Since 1951</h3>
+      <p style="color:var(--text-secondary);line-height:1.7;margin-bottom:12px;">Fundada no Japão em 1951, a AIWA sempre foi sinônimo de qualidade em áudio e vídeo. Por décadas, a marca foi referência mundial em som de alta fidelidade.</p>
+      <p style="color:var(--text-secondary);line-height:1.7;margin-bottom:12px;">Hoje, o <b style="color:var(--text-primary);">Grupo MK</b> trouxe a AIWA de volta ao Brasil com força total, comprando a fábrica que era da Sony em Manaus. Isso significa:</p>
+      <ul style="color:var(--text-secondary);line-height:1.8;font-size:14px;list-style:none;padding:0;">
+        <li>🏭 Fabricação local em Manaus</li>
+        <li>💰 Preço competitivo sem taxas de importação</li>
+        <li>🛠️ Suporte técnico nacional</li>
+        <li>📦 Estoque e reposição rápidos</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3 style="color:var(--accent-cyan);margin-bottom:12px;">Linha de Produtos</h3>
+      <ul style="color:var(--text-secondary);line-height:1.8;font-size:14px;list-style:none;padding:0;">
+        <li>🔊 Áudio — Boombox, Soundbars, Caixas de Som</li>
+        <li>📺 TVs — Smart TVs 4K com tecnologia japonesa</li>
+        <li>❄️ Ar Condicionado — Split Inverter com Wi-Fi</li>
+        <li>🏠 Eletroportáteis — Liquidificadores, Aspiradores</li>
+      </ul>
+    </div>
   </div>
 
   <div id="content-sobre-promotor" class="tab-content" style="display:none;">
-    <!-- include: sobre_promotor.html -->
+    <div class="card" style="text-align:center;">
+      <div style="font-size:64px;margin-bottom:16px;">👨‍💼</div>
+      <h3 style="color:var(--accent-cyan);margin-bottom:8px;">Bruno</h3>
+      <p style="color:var(--accent-magenta);font-weight:700;margin-bottom:12px;">Promotor AIWA</p>
+      <p style="color:var(--text-secondary);line-height:1.7;margin-bottom:16px;">Especialista em produtos AIWA, treinamentos e demonstrações. Responsável por apoiar a equipe de vendas e garantir que cada cliente tenha a melhor experiência.</p>
+      <ul style="color:var(--text-secondary);line-height:1.8;font-size:14px;list-style:none;padding:0;text-align:left;">
+        <li>🎯 Especialista em áudio e tecnologia</li>
+        <li>📚 Treinamentos de produto e vendas</li>
+        <li>🎤 Demonstrações ao vivo no PDV</li>
+        <li>🤝 Suporte à equipe de vendedores</li>
+        <li>📈 Metas e acompanhamento de resultados</li>
+      </ul>
+    </div>
   </div>
-
 </div>

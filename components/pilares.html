@@ -1,95 +1,56 @@
-<div id="page-pilares" class="app-page">
+<div class="page-wrapper">
+  <h2 class="page-title">🏛️ 3 Pilares AIWA</h2>
+  <p class="page-subtitle">Qualidade, Confiança e Inovação — a base de cada venda</p>
 
-<div class="section-title">
+  <div class="tab-bar">
+    <button class="tab-btn active-tab" onclick="switchSubTab('pilar-qualidade', this)">Qualidade</button>
+    <button class="tab-btn" onclick="switchSubTab('pilar-confianca', this)">Confiança</button>
+    <button class="tab-btn" onclick="switchSubTab('pilar-inovacao', this)">Inovação</button>
+  </div>
 
-🛡️ Os 3 Pilares AIWA
+  <div id="content-pilar-qualidade" class="tab-content" style="display:block;">
+    <div class="card">
+      <h3 style="color:var(--accent-cyan);margin-bottom:12px;">✦ Qualidade</h3>
+      <ul style="color:var(--text-secondary);line-height:1.8;font-size:14px;list-style:none;padding:0;">
+        <li>⚡ Potência real de 200W RMS — sem quedas na bateria</li>
+        <li>🔊 Sistema acústico de 3 vias reais — vozes nunca abafadas</li>
+        <li>🛡️ Materiais premium e acabamento robusto</li>
+        <li>🎵 Experiência sonora limpa, sem distorção</li>
+      </ul>
+      <div class="tech-script" style="margin-top:16px;">
+        <p><i>"A AIWA entrega potência real, sem quedas. Nosso sistema de 3 vias garante que as vozes nunca fiquem abafadas pelos graves."</i></p>
+      </div>
+    </div>
+  </div>
 
-</div>
+  <div id="content-pilar-confianca" class="tab-content" style="display:none;">
+    <div class="card">
+      <h3 style="color:var(--accent-magenta);margin-bottom:12px;">✦ Confiança</h3>
+      <ul style="color:var(--text-secondary);line-height:1.8;font-size:14px;list-style:none;padding:0;">
+        <li>🇯🇵 AIWA — Japanese Technology Since 1951</li>
+        <li>🏢 Grupo MK — suporte nacional robusto</li>
+        <li>🛡️ Garantia de 12 meses com rede de atendimento</li>
+        <li>🤝 Pós-venda presente e acessível</li>
+      </ul>
+      <div class="tech-script" style="margin-top:16px;">
+        <p><i>"A AIWA existe desde 1951. Hoje, com o Grupo MK no Brasil, você tem garantia nacional e suporte local de verdade."</i></p>
+      </div>
+    </div>
+  </div>
 
-
-<p class="section-description">
-
-Muito mais do que vender produtos,
-a AIWA constrói experiências.
-
-Conheça os três pilares que sustentam a marca.
-
-</p>
-
-
-
-<div class="tabs-container">
-
-<button
-class="tab-btn active-tab"
-onclick="switchSubTab('qualidade',this)"
->
-
-Qualidade
-
-</button>
-
-
-
-<button
-class="tab-btn"
-onclick="switchSubTab('confianca',this)"
->
-
-Confiança
-
-</button>
-
-
-
-<button
-class="tab-btn"
-onclick="switchSubTab('inovacao',this)"
->
-
-Inovação
-
-</button>
-
-</div>
-
-
-
-<div
-id="content-qualidade"
-class="tab-content"
-style="display:block"
->
-
-<!-- qualidade -->
-
-</div>
-
-
-
-
-<div
-id="content-confianca"
-class="tab-content"
-style="display:none"
->
-
-<!-- confianca -->
-
-</div>
-
-
-
-
-<div
-id="content-inovacao"
-class="tab-content"
-style="display:none"
->
-
-<!-- inovacao -->
-
-</div>
-
-
+  <div id="content-pilar-inovacao" class="tab-content" style="display:none;">
+    <div class="card">
+      <h3 style="color:var(--accent-yellow);margin-bottom:12px;">✦ Inovação</h3>
+      <ul style="color:var(--text-secondary);line-height:1.8;font-size:14px;list-style:none;padding:0;">
+        <li>📶 Bluetooth 5.3 — alcance e estabilidade superiores</li>
+        <li>📱 App AIWA Áudio BR — controle total do som</li>
+        <li>📡 TWS — dobre a potência conectando duas caixas</li>
+        <li>💧 IP66 — proteção contra poeira e jatos de água</li>
+        <li>🎵 Bass Boost — graves intensos sob demanda</li>
+      </ul>
+      <div class="tech-script" style="margin-top:16px;">
+        <p><i>"Tecnologia de ponta: Bluetooth 5.3, app próprio, TWS, IP66 e Bass Boost. Tudo para o cliente ter a melhor experiência."</i></p>
+      </div>
+    </div>
+  </div>
 </div>

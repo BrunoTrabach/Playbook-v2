@@ -1,6 +1,6 @@
 // ========================================
 // AIWA PLAYBOOK MATRIX V2
-// DATABASE CENTRAL EXPANDIDO
+// DATABASE CENTRAL — V2.3 CORRIGIDO
 // ========================================
 
 const PRODUCTS = {
@@ -34,9 +34,6 @@ const PRODUCTS = {
   }
 };
 
-// ========================================
-// 3 PILARES AIWA
-// ========================================
 const PILARES = {
   qualidade: {
     titulo: "Qualidade",
@@ -77,9 +74,6 @@ const PILARES = {
   }
 };
 
-// ========================================
-// COMPARATIVOS
-// ========================================
 const COMPARATIVOS = {
   audio: {
     titulo: "Comparativos de Áudio",
@@ -124,9 +118,6 @@ const COMPARATIVOS = {
   }
 };
 
-// ========================================
-// CONCLUSOES
-// ========================================
 const CONCLUSOES = {
   completa: {
     titulo: "Conclusão Completa",
@@ -167,112 +158,191 @@ const CONCLUSOES = {
 };
 
 // ========================================
-// ASSISTENTE AIWA (Offline)
+// ASSISTENTE AIWA — V2.3 CORRIGIDO
+// Algoritmo de matching melhorado
 // ========================================
 const AI_ASSISTANT = {
   nome: "Assistente AIWA",
   descricao: "Tire dúvidas rápidas sobre produtos, tecnologias e argumentos de venda.",
-  sugestoes: [
-    "Como responder objeção de preço?",
-    "O que é IP66?",
-    "Como funciona o TWS?",
-    "Diferença do Bluetooth 5.3",
-    "Quanto dura a bateria?",
-    "Como demonstrar o grave?",
-    "O que é Bass Boost?",
-    "Como usar o app AIWA?"
-  ],
+
+  // Palavras ignoradas (artigos, preposições, pronomes, verbos comuns)
+  stopWords: new Set([
+    "o", "a", "os", "as", "um", "uma", "uns", "umas",
+    "de", "do", "da", "dos", "das", "em", "no", "na", "nos", "nas",
+    "por", "para", "com", "sem", "sob", "sobre", "entre", "até", "desde",
+    "e", "ou", "mas", "que", "se", "como", "quando", "onde", "porque", "porquê",
+    "qual", "quais", "quem", "cujo", "cuja", "cujos", "cujas",
+    "é", "são", "foi", "foram", "ser", "estar", "ter", "haver",
+    "este", "esta", "estes", "estas", "esse", "essa", "esses", "essas",
+    "aquele", "aquela", "aqueles", "aquelas", "isto", "isso", "aquilo",
+    "meu", "minha", "meus", "minhas", "seu", "sua", "seus", "suas",
+    "nosso", "nossa", "nossos", "nossas", "dela", "dele", "delas", "deles",
+    "muito", "mais", "menos", "muito", "pouco", "tanto", "tão", "tão",
+    "já", "ainda", "também", "só", "apenas", "bem", "mal", "assim",
+    "aqui", "ali", "lá", "hoje", "agora", "antes", "depois", "logo",
+    "todo", "toda", "todos", "todas", "cada", "outro", "outra", "outros", "outras",
+    "mesmo", "mesma", "mesmos", "mesmas", "próprio", "própria", "próprios", "próprias",
+    "tal", "tais", "certo", "certa", "certos", "certas", "vários", "várias",
+    "tudo", "nada", "algo", "alguém", "ninguém", "todos", "todas",
+    "pode", "poder", "fazer", "dar", "ver", "saber", "querer", "ir", "vir",
+    "dizer", "falar", "perguntar", "responder", "mostrar", "usar", "funcionar"
+  ]),
+
   respostas: [
     {
-      keywords: ["preço", "caro", "barato", "custa", "valor", "dinheiro", "paga"],
-      resposta: "💰 Argumento de Preço: A AIWA é R$600-900 mais barata que a JBL Partybox Club 120, entregando 200W RMS reais na bateria (a JBL cai para 136W). Além disso, temos IP66, 30h de bateria e app próprio. O cliente leva mais tecnologia por menos."
+      id: "preco",
+      keywords: ["preço", "caro", "barato", "custa", "valor", "dinheiro", "paga", "pago", "paguei", "custo", "investimento"],
+      peso: 10,
+      resposta: "💰 <b>Argumento de Preço</b><br><br>A AIWA é R$600-900 mais barata que a JBL Partybox Club 120, entregando 200W RMS reais na bateria (a JBL cai para 136W). Além disso, temos IP66, 30h de bateria e app próprio. O cliente leva mais tecnologia por menos."
     },
     {
-      keywords: ["grave", "bass", "funk", "pesado", "grave", "subwoofer", "vibrar"],
-      resposta: "🔊 Graves: A AIWA tem resposta de frequência 20Hz-20KHz, com grave 2x mais profundo que a JBL. Acima de 70% de volume, o Bass Boost exclusivo entrega ainda mais impacto. Peça ao cliente para colocar a mão no lado da caixa e sentir a vibração."
+      id: "grave",
+      keywords: ["grave", "bass", "funk", "pesado", "subwoofer", "vibrar", "vibração", "grave", "graves", "baixo", "baixos", "sub"],
+      peso: 10,
+      resposta: "🔊 <b>Graves</b><br><br>A AIWA tem resposta de frequência 20Hz-20KHz, com grave 2x mais profundo que a JBL. Acima de 70% de volume, o Bass Boost exclusivo entrega ainda mais impacto. Peça ao cliente para colocar a mão no lado da caixa e sentir a vibração."
     },
     {
-      keywords: ["água", "praia", "piscina", "chuva", "molhar", "ip66", "ip", "proteção", "poeira", "areia"],
-      resposta: "💧 IP66: Totalmente vedada contra poeira e jatos de água. Pode levar para a praia, deixar perto da piscina e até lavar com jato leve. O compartimento traseiro deve ficar fechado. NÃO pode mergulhar. Concorrentes oferecem apenas IPX4 (respingos)."
+      id: "ip66",
+      keywords: ["ip66", "ip67", "ip68", "água", "praia", "piscina", "chuva", "molhar", "proteção", "poeira", "areia", "respingo", "jato", "imersão", "mergulhar"],
+      peso: 10,
+      resposta: "💧 <b>IP66</b><br><br>Totalmente vedada contra poeira e jatos de água. Pode levar para a praia, deixar perto da piscina e até lavar com jato leve. O compartimento traseiro deve ficar fechado. <b>NÃO pode mergulhar.</b> Concorrentes oferecem apenas IPX4 (respingos)."
     },
     {
-      keywords: ["tws", "true wireless", "estéreo", "duas caixas", "parear", "conectar duas"],
-      resposta: "📡 TWS (True Wireless Stereo): Conecte duas Boombox AIWA sem fios. Você dobra a potência para 400W RMS e cria um sistema estéreo verdadeiro. Ideal para ambientes grandes e festas."
+      id: "tws",
+      keywords: ["tws", "true wireless", "estéreo", "duas caixas", "parear", "conectar duas", "pareamento", "sincronizar caixas", "dobrar potência"],
+      peso: 10,
+      resposta: "📡 <b>TWS (True Wireless Stereo)</b><br><br>Conecte duas Boombox AIWA sem fios. Você dobra a potência para 400W RMS e cria um sistema estéreo verdadeiro. Ideal para ambientes grandes e festas."
     },
     {
-      keywords: ["bluetooth", "5.3", "conexão", "alcance", "estabilidade", "parear", "sincronizar"],
-      resposta: "📶 Bluetooth 5.3: Alcance de até 30 metros em ambiente aberto, conexão estável sem quedas e baixa latência. Superior ao Bluetooth 5.0 das concorrentes. Conecta rapidamente e não desconecta no meio da música."
+      id: "bluetooth",
+      keywords: ["bluetooth", "5.3", "conexão", "alcance", "estabilidade", "parear", "sincronizar", "pareamento", "sinal", "distância"],
+      peso: 10,
+      resposta: "📶 <b>Bluetooth 5.3</b><br><br>Alcance de até 30 metros em ambiente aberto, conexão estável sem quedas e baixa latência. Superior ao Bluetooth 5.0 das concorrentes. Conecta rapidamente e não desconecta no meio da música."
     },
     {
-      keywords: ["bateria", "autonomia", "dura", "horas", "carregar", "powerbank", "energia", "tomada"],
-      resposta: "🔋 Bateria: Até 30 horas em volume médio. Em uso intenso, segura o dia todo. A AIWA mantém os 200W RMS reais mesmo na bateria — diferente das concorrentes que caem a potência para economizar energia. Ainda funciona como powerbank para carregar o celular."
+      id: "bateria",
+      keywords: ["bateria", "autonomia", "dura", "horas", "carregar", "powerbank", "energia", "tomada", "carregamento", "duração"],
+      peso: 10,
+      resposta: "🔋 <b>Bateria</b><br><br>Até 30 horas em volume médio. Em uso intenso, segura o dia todo. A AIWA mantém os 200W RMS reais mesmo na bateria — diferente das concorrentes que caem a potência para economizar energia. Ainda funciona como powerbank para carregar o celular."
     },
     {
-      keywords: ["app", "aplicativo", "aiwa áudio", "equalizador", "preset", "controle", "celular"],
-      resposta: "📱 App AIWA Áudio BR: Controle total da caixa pelo celular. Reforço de grave, equalizadores pré-definidos (Rock, Pop, Jazz, etc.), ajuste de balanço e atualizações de firmware. Disponível para Android e iOS."
+      id: "app",
+      keywords: ["app", "aplicativo", "aiwa áudio", "equalizador", "preset", "controle", "celular", "smartphone", "app aiwa"],
+      peso: 10,
+      resposta: "📱 <b>App AIWA Áudio BR</b><br><br>Controle total da caixa pelo celular. Reforço de grave, equalizadores pré-definidos (Rock, Pop, Jazz, etc.), ajuste de balanço e atualizações de firmware. Disponível para Android e iOS."
     },
     {
-      keywords: ["bass boost", "boost", "reforço grave", "grave extra"],
-      resposta: "🎵 Bass Boost: Tecnologia exclusiva AIWA que ativa um reforço adicional de graves acima de 70% do volume. Ideal para funk, eletrônica e reggaeton. O cliente sente a diferença imediatamente na demonstração."
+      id: "bass_boost",
+      keywords: ["bass boost", "boost", "reforço grave", "grave extra", "bassboost", "reforço de grave"],
+      peso: 10,
+      resposta: "🎵 <b>Bass Boost</b><br><br>Tecnologia exclusiva AIWA que ativa um reforço adicional de graves acima de 70% do volume. Ideal para funk, eletrônica e reggaeton. O cliente sente a diferença imediatamente na demonstração."
     },
     {
-      keywords: ["garantia", "suporte", "assistência", "defeito", "quebrou", "conserto"],
-      resposta: "🛡️ Garantia: 12 meses de garantia nacional com rede de suporte do Grupo MK. Peças e assistência em todo o Brasil. O cliente não fica desamparado."
+      id: "garantia",
+      keywords: ["garantia", "suporte", "assistência", "defeito", "quebrou", "conserto", "reparo", "troca", "garantir"],
+      peso: 10,
+      resposta: "🛡️ <b>Garantia</b><br><br>12 meses de garantia nacional com rede de suporte do Grupo MK. Peças e assistência em todo o Brasil. O cliente não fica desamparado."
     },
     {
-      keywords: ["qualidade", "som", "áudio", "limpo", "distorção", "volume", "potência real"],
-      resposta: "🎚️ Qualidade de Som: Sistema acústico de 3 vias reais. Tweeter para agudos, woofer para médios e subwoofer para graves. As vozes nunca ficam abafadas. Som limpo mesmo no volume máximo, sem distorção."
+      id: "qualidade",
+      keywords: ["qualidade", "som", "áudio", "limpo", "distorção", "volume", "potência real", "3 vias", "tweeter", "woofer", "subwoofer"],
+      peso: 8,
+      resposta: "🎚️ <b>Qualidade de Som</b><br><br>Sistema acústico de 3 vias reais. Tweeter para agudos, woofer para médios e subwoofer para graves. As vozes nunca ficam abafadas. Som limpo mesmo no volume máximo, sem distorção."
     },
     {
-      keywords: ["sony", "fábrica", "mana", "história", "1951", "japão", "tradição"],
-      resposta: "🇯🇵 História AIWA: Fundada no Japão em 1951. Referência em áudio e vídeo por décadas. Hoje, o Grupo MK comprou a fábrica que era da Sony em Manaus, mantendo a mesma qualidade com preço acessível."
+      id: "historia",
+      keywords: ["sony", "fábrica", "manaus", "história", "1951", "japão", "tradição", "origem", "marca"],
+      peso: 10,
+      resposta: "🇯🇵 <b>História AIWA</b><br><br>Fundada no Japão em 1951. Referência em áudio e vídeo por décadas. Hoje, o Grupo MK comprou a fábrica que era da Sony em Manaus, mantendo a mesma qualidade com preço acessível."
     },
     {
-      keywords: ["jbl", "concorrente", "comparar", "diferença", "partybox", "lg", "philco", "mondial"],
-      resposta: "⚖️ Comparativo: AIWA vs JBL — AIWA tem mais potência real na bateria, IP66 vs IPX4, 30h vs 12h, app completo e preço 20-40% menor. AIWA vs LG/Philco — AIWA entrega tecnologia premium (Bluetooth 5.3, TWS, App) que as outras não têm."
+      id: "comparativo",
+      keywords: ["jbl", "concorrente", "comparar", "diferença", "partybox", "lg", "philco", "mondial", "vs", "versus", "concorrentes"],
+      peso: 10,
+      resposta: "⚖️ <b>Comparativo</b><br><br><b>AIWA vs JBL</b> — AIWA tem mais potência real na bateria, IP66 vs IPX4, 30h vs 12h, app completo e preço 20-40% menor.<br><br><b>AIWA vs LG/Philco</b> — AIWA entrega tecnologia premium (Bluetooth 5.3, TWS, App) que as outras não têm."
     },
     {
-      keywords: ["demonstração", "demo", "mostrar", "testar", "música", "experimentar", "vender"],
-      resposta: "🎯 Demonstração: 1) Ligue a caixa na bateria (mostre que não precisa de tomada). 2) Toque uma música com grave (Fuego, Animals). 3) Peça para o cliente colocar a mão na caixa e sentir a vibração. 4) Mostre o app com equalizadores. 5) Molhe levemente a caixa para provar o IP66."
+      id: "demonstracao",
+      keywords: ["demonstração", "demo", "mostrar", "testar", "música", "experimentar", "vender", "venda", "abordagem", "atender", "cliente"],
+      peso: 8,
+      resposta: "🎯 <b>Demonstração</b><br><br>1) Ligue a caixa na bateria (mostre que não precisa de tomada).<br>2) Toque uma música com grave (Fuego, Animals).<br>3) Peça para o cliente colocar a mão na caixa e sentir a vibração.<br>4) Mostre o app com equalizadores.<br>5) Molhe levemente a caixa para provar o IP66."
     },
     {
-      keywords: ["pendrive", "usb", "entrada", "tocar", "mp3", "música", "arquivo"],
-      resposta: "💾 USB/Pendrive: A Boombox AIWA possui entrada USB. O cliente pode colocar um pendrive com músicas em MP3 e tocar direto, sem depender de celular ou internet."
+      id: "pendrive",
+      keywords: ["pendrive", "usb", "entrada", "tocar", "mp3", "música", "arquivo", "pen drive", "pendrive"],
+      peso: 10,
+      resposta: "💾 <b>USB/Pendrive</b><br><br>A Boombox AIWA possui entrada USB. O cliente pode colocar um pendrive com músicas em MP3 e tocar direto, sem depender de celular ou internet."
     },
     {
-      keywords: ["3 vias", "vias", "tweeter", "woofer", "subwoofer", "driver", "falante"],
-      resposta: "🔊 Sistema 3 Vias: Tweeter dedicado para agudos cristalinos, woofer para médios claros e subwoofer para graves profundos. Cada frequência tem seu próprio driver. Resultado: som equilibrado, sem vozes abafadas."
+      id: "3vias",
+      keywords: ["3 vias", "vias", "tweeter", "woofer", "subwoofer", "driver", "falante", "alto-falante"],
+      peso: 10,
+      resposta: "🔊 <b>Sistema 3 Vias</b><br><br>Tweeter dedicado para agudos cristalinos, woofer para médios claros e subwoofer para graves profundos. Cada frequência tem seu próprio driver. Resultado: som equilibrado, sem vozes abafadas."
     }
   ],
 
   responder: function(pergunta) {
-    const palavras = pergunta.toLowerCase().replace(/[?¿!¡.,;]/g, "").split(/\s+/);
+    // Limpa a pergunta
+    const limpa = pergunta.toLowerCase()
+      .replace(/[?¿!¡.,;]/g, " ")
+      .replace(/\s+/g, " ")
+      .trim();
+
+    const palavras = limpa.split(" ");
+
+    // Filtra apenas palavras significativas (>= 3 caracteres e não stop words)
+    const palavrasSignificativas = palavras.filter(p => 
+      p.length >= 3 && !this.stopWords.has(p)
+    );
+
+    // Se não houver palavras significativas, usa todas as palavras >= 2 chars
+    const termos = palavrasSignificativas.length > 0 
+      ? palavrasSignificativas 
+      : palavras.filter(p => p.length >= 2);
+
     let melhorMatch = null;
     let melhorScore = 0;
 
     for (let item of this.respostas) {
       let score = 0;
+      let matchesExatos = 0;
+
       for (let k of item.keywords) {
-        if (palavras.some(p => p.includes(k) || k.includes(p))) {
-          score++;
+        const kLower = k.toLowerCase();
+
+        for (let p of termos) {
+          // Match exato vale mais
+          if (p === kLower) {
+            score += item.peso;
+            matchesExatos++;
+          }
+          // Match parcial (contém) vale menos
+          else if (p.includes(kLower) || kLower.includes(p)) {
+            score += item.peso * 0.5;
+          }
         }
       }
+
+      // Bônus para matches exatos múltiplos
+      if (matchesExatos >= 2) {
+        score += 20;
+      }
+
       if (score > melhorScore) {
         melhorScore = score;
         melhorMatch = item;
       }
     }
 
-    if (melhorMatch && melhorScore > 0) {
+    // Só responde se tiver score mínimo
+    if (melhorMatch && melhorScore >= 5) {
       return melhorMatch.resposta;
     }
-    return "🤖 Não encontrei uma resposta exata para isso. Tente perguntar sobre: preço, potência, IP66, bateria, Bluetooth, TWS, app, graves, garantia ou demonstração.";
+
+    return "🤖 Não encontrei uma resposta exata para isso. Tente perguntar sobre: <b>preço, potência, IP66, bateria, Bluetooth, TWS, app, graves, garantia</b> ou <b>demonstração</b>.";
   }
 };
 
-// ========================================
-// HISTORIAS (Referência para navegação)
-// ========================================
 const HISTORIAS = [
   { id: "hist1", titulo: "1ª Abordagem — Promotor e Cliente", personagens: ["Bruno", "Cristiane", "Edy"], objetivo: "Abordagem, demonstração e fechamento" },
   { id: "hist2", titulo: "Pós-venda — Cliente Retorna", personagens: ["Cristiane", "Edy", "Bruno"], objetivo: "Suporte, app, IP66, TWS e indicação" },
@@ -281,9 +351,6 @@ const HISTORIAS = [
   { id: "hist_expandida", titulo: "História Expandida — A Indicação", personagens: ["Bruno", "Cristiane", "Fernanda", "Edy"], objetivo: "Narrativa completa de retorno e indicação" }
 ];
 
-// ========================================
-// TECNOLOGIAS (Referência para navegação)
-// ========================================
 const TECNOLOGIAS = [
   { id: "bluetooth", titulo: "Bluetooth 5.3", icone: "📶", resumo: "Alcance de 30m, estabilidade superior, baixa latência." },
   { id: "tws", titulo: "True Wireless Stereo", icone: "📡", resumo: "Conecte duas caixas e dobre a potência com estéreo real." },

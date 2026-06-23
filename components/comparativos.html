@@ -1,438 +1,91 @@
-<div id="page-comparativos" class="app-page">
-
-<div class="section-title">
-
-📊 Comparativos Inteligentes
-
-</div>
-
-
-<div class="card">
-
-<h3>
-
-Categoria
-
-</h3>
-
-<div class="compare-options">
-
-<button class="compare-btn active">
-
-🔊 Áudio
-
-</button>
-
-<button class="compare-btn">
-
-❄️ Ar Condicionado
-
-</button>
-
-</div>
-
-</div>
-
-
-
-<div class="card">
-
-<h3>
-
-Quantidade de Produtos
-
-</h3>
-
-<div class="compare-options">
-
-<button class="compare-btn active">
-
-1 x 1
-
-</button>
-
-<button class="compare-btn">
-
-1 x 2
-
-</button>
-
-<button class="compare-btn">
-
-1 x 3
-
-</button>
-
-<button class="compare-btn">
-
-1 x 4
-
-</button>
-
-<button class="compare-btn">
-
-1 x 5
-
-</button>
-
-</div>
-
-</div>
-
-
-
-<div class="card">
-
-<h3>
-
-Produto Principal
-
-</h3>
-
-<select class="compare-select">
-
-<option>
-
-Boombox AIWA
-
-</option>
-
-<option>
-
-Party Speaker AIWA
-
-</option>
-
-</select>
-
-</div>
-
-
-
-<div class="card">
-
-<h3>
-
-Comparar com
-
-</h3>
-
-
-<select class="compare-select">
-
-<option>
-
-JBL Club 120
-
-</option>
-
-<option>
-
-Philco PBS220
-
-</option>
-
-<option>
-
-Mondial CM550
-
-</option>
-
-</select>
-
-
-<select class="compare-select">
-
-<option>
-
-Selecione
-
-</option>
-
-</select>
-
-
-<select class="compare-select">
-
-<option>
-
-Selecione
-
-</option>
-
-</select>
-
-
-<select class="compare-select">
-
-<option>
-
-Selecione
-
-</option>
-
-</select>
-
-
-<select class="compare-select">
-
-<option>
-
-Selecione
-
-</option>
-
-</select>
-
-</div>
-
-
-
-
-<div class="section-title">
-
-Resultado
-
-</div>
-
-
-<div class="compare-wrapper">
-
-<table class="compare-table">
-
-
-<tr>
-
-<th>
-
-Recurso
-
-</th>
-
-<th>
-
-AIWA
-
-</th>
-
-<th>
-
-JBL
-
-</th>
-
-</tr>
-
-
-<tr>
-
-<td>
-
-Potência
-
-</td>
-
-<td>
-
-200W RMS
-
-</td>
-
-<td>
-
-160W RMS
-
-</td>
-
-</tr>
-
-
-<tr>
-
-<td>
-
-Bluetooth
-
-</td>
-
-<td>
-
-5.3
-
-</td>
-
-<td>
-
-5.1
-
-</td>
-
-</tr>
-
-
-<tr>
-
-<td>
-
-Proteção
-
-</td>
-
-<td>
-
-IP66
-
-</td>
-
-<td>
-
-IPX4
-
-</td>
-
-</tr>
-
-
-<tr>
-
-<td>
-
-TWS
-
-</td>
-
-<td>
-
-✔
-
-</td>
-
-<td>
-
-✔
-
-</td>
-
-</tr>
-
-
-<tr>
-
-<td>
-
-App
-
-</td>
-
-<td>
-
-✔
-
-</td>
-
-<td>
-
-✔
-
-</td>
-
-</tr>
-
-
-<tr>
-
-<td>
-
-Bass Boost
-
-</td>
-
-<td>
-
-✔
-
-</td>
-
-<td>
-
-✖
-
-</td>
-
-</tr>
-
-
-<tr>
-
-<td>
-
-USB Powerbank
-
-</td>
-
-<td>
-
-✔
-
-</td>
-
-<td>
-
-✖
-
-</td>
-
-</tr>
-
-
-<tr>
-
-<td>
-
-Bateria
-
-</td>
-
-<td>
-
-Até 30h
-
-</td>
-
-<td>
-
-Até 12h
-
-</td>
-
-</tr>
-
-
-<tr>
-
-<td>
-
-Garantia
-
-</td>
-
-<td>
-
-12 meses
-
-</td>
-
-<td>
-
-12 meses
-
-</td>
-
-</tr>
-
-
-</table>
-
-</div>
-
+<div class="page-wrapper">
+  <h2 class="page-title">⚖️ Comparativos</h2>
+  <p class="page-subtitle">AIWA vs Concorrentes — argumentos e objeções</p>
+
+  <div class="tab-bar">
+    <button class="tab-btn active-tab" onclick="switchSubTab('comp-audio', this)">Áudio</button>
+    <button class="tab-btn" onclick="switchSubTab('comp-ar', this)">Ar Condicionado</button>
+  </div>
+
+  <div id="content-comp-audio" class="tab-content" style="display:block;">
+    <div class="card">
+      <h3 style="color:var(--accent-cyan);margin-bottom:12px;">Boombox AIWA vs Concorrentes</h3>
+      <div class="compare-wrapper">
+        <table class="compare-table">
+          <tr>
+            <th>Recurso</th>
+            <th style="background:var(--accent-red);">AIWA</th>
+            <th>JBL</th>
+            <th>LG</th>
+            <th>Philco</th>
+          </tr>
+          <tr><td>Potência</td><td><b>200W RMS</b></td><td>160W</td><td>130W</td><td>100W</td></tr>
+          <tr><td>Bateria</td><td><b>30h</b></td><td>12h</td><td>10h</td><td>8h</td></tr>
+          <tr><td>Proteção</td><td><b>IP66</b></td><td>IPX4</td><td>IPX5</td><td>Não</td></tr>
+          <tr><td>Bluetooth</td><td><b>5.3</b></td><td>5.3</td><td>5.0</td><td>5.0</td></tr>
+          <tr><td>TWS</td><td>✅</td><td>✅</td><td>✅</td><td>❌</td></tr>
+          <tr><td>App</td><td>✅</td><td>✅</td><td>✅</td><td>❌</td></tr>
+          <tr><td>Preço</td><td><b>Menor</b></td><td>+R$600</td><td>+R$300</td><td>Similar</td></tr>
+        </table>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3 style="color:var(--accent-yellow);margin-bottom:12px;">💬 Argumentos de Venda</h3>
+      <ul style="color:var(--text-secondary);line-height:1.8;font-size:13px;list-style:none;padding:0;">
+        <li>⚡ A AIWA mantém 200W RMS reais mesmo na bateria — concorrentes caem até 30%</li>
+        <li>💧 IP66 protege contra poeira e jatos de água — superior ao IPX4/IPX5</li>
+        <li>🔋 Até 30 horas de bateria — o dobro da maioria</li>
+        <li>💰 Preço 20-40% menor com mais recursos</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h3 style="color:var(--accent-magenta);margin-bottom:12px;">🛡️ Como Responder Objeções</h3>
+      <div style="margin-bottom:12px;">
+        <p style="color:var(--accent-red);font-weight:700;font-size:13px;">"A JBL é mais conhecida"</p>
+        <p style="color:var(--text-secondary);font-size:13px;font-style:italic;">A AIWA comprou a fábrica da Sony em Manaus. Mesma qualidade, preço melhor.</p>
+      </div>
+      <div style="margin-bottom:12px;">
+        <p style="color:var(--accent-red);font-weight:700;font-size:13px;">"Nunca ouvi falar da AIWA em caixas"</p>
+        <p style="color:var(--text-secondary);font-size:13px;font-style:italic;">A AIWA é referência desde 1951. O Grupo MK trouxe a linha completa para o Brasil.</p>
+      </div>
+      <div>
+        <p style="color:var(--accent-red);font-weight:700;font-size:13px;">"O preço está muito baixo, deve ser inferior"</p>
+        <p style="color:var(--text-secondary);font-size:13px;font-style:italic;">O preço é competitivo porque fabricamos localmente em Manaus, sem taxas de importação.</p>
+      </div>
+    </div>
+  </div>
+
+  <div id="content-comp-ar" class="tab-content" style="display:none;">
+    <div class="card">
+      <h3 style="color:var(--accent-cyan);margin-bottom:12px;">Ar Condicionado AIWA vs Concorrentes</h3>
+      <div class="compare-wrapper">
+        <table class="compare-table">
+          <tr>
+            <th>Recurso</th>
+            <th style="background:var(--accent-red);">AIWA</th>
+            <th>LG</th>
+            <th>Samsung</th>
+            <th>Midea</th>
+          </tr>
+          <tr><td>BTUs</td><td>9000</td><td>9000</td><td>9000</td><td>9000</td></tr>
+          <tr><td>Inverter</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td></tr>
+          <tr><td>Gás</td><td><b>R32</b></td><td>R32</td><td>R410A</td><td>R32</td></tr>
+          <tr><td>Wi-Fi</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td></tr>
+          <tr><td>Preço</td><td><b>Menor</b></td><td>+R$400</td><td>+R$600</td><td>+R$200</td></tr>
+        </table>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3 style="color:var(--accent-yellow);margin-bottom:12px;">💬 Argumentos de Venda</h3>
+      <ul style="color:var(--text-secondary);line-height:1.8;font-size:13px;list-style:none;padding:0;">
+        <li>🌿 Gás R32 ecológico — mesmo das premium</li>
+        <li>📱 Wi-Fi integrado — controle pelo celular</li>
+        <li>⚡ Inverter verdadeiro — economia de até 60%</li>
+        <li>💰 Preço abaixo das concorrentes com mesma tecnologia</li>
+      </ul>
+    </div>
+  </div>
 </div>

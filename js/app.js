@@ -1,6 +1,6 @@
 // ========================================
 // AIWA PLAYBOOK MATRIX V2
-// Engine Principal — Atualizado V2.1
+// Engine Principal — V2.3 CORRIGIDO
 // ========================================
 
 // ==================== DATA E HORA ====================
@@ -73,7 +73,6 @@ function switchPage(pageId, pageTitle) {
   if (activeBtn) {
     activeBtn.classList.add('active');
   }
-  // Scroll ao topo
   window.scrollTo(0, 0);
 }
 
@@ -189,8 +188,13 @@ async function loadComponent(targetId, file) {
   }
 }
 
-// ==================== ASSISTENTE AIWA ====================
+// ==================== ASSISTENTE AIWA — CORRIGIDO ====================
+let assistantInitialized = false;
+
 function initAssistant() {
+  if (assistantInitialized) return;
+  assistantInitialized = true;
+
   const input = document.getElementById('assistant-input');
   const sendBtn = document.getElementById('assistant-send');
   const chat = document.getElementById('assistant-chat');
@@ -209,11 +213,10 @@ function initAssistant() {
   function processQuestion(q) {
     if (!q.trim()) return;
     addMessage(q, 'user');
-    // Simula digitação
     setTimeout(() => {
       const resposta = AI_ASSISTANT.responder(q);
       addMessage(resposta, 'bot');
-    }, 600);
+    }, 500);
   }
 
   if (sendBtn) {
@@ -252,7 +255,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
   loadStory("hist1");
 
-  // Inicializa assistente se a página for aberta
+  // Inicializa assistente quando a página for aberta
   const observer = new MutationObserver((mutations) => {
     mutations.forEach((mutation) => {
       if (mutation.target.id === 'page-assistente' && mutation.target.classList.contains('active-page')) {

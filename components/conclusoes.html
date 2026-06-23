@@ -1,44 +1,46 @@
-<div id="page-conclusoes" class="app-page">
+<div class="page-wrapper">
+  <h2 class="page-title">✅ Conclusões</h2>
+  <p class="page-subtitle">Feche com confiança. Resuma o valor AIWA.</p>
 
-  <h2 class="section-title">
-    🎯 Conclusões
-  </h2>
-
-  <div class="tabs-container">
-
-    <button
-      class="tab-btn active-tab"
-      onclick="switchSubTab('conclusao-geral', this)"
-    >
-      Resumo Geral
-    </button>
-
-    <button
-      class="tab-btn"
-      onclick="switchSubTab('relacionamento', this)"
-    >
-      Relacionamento
-    </button>
-
-    <button
-      class="tab-btn"
-      onclick="switchSubTab('venda', this)"
-    >
-      Venda Consultiva
-    </button>
-
+  <div class="tab-bar">
+    <button class="tab-btn active-tab" onclick="switchSubTab('conclusao-geral', this)">Conclusão Geral</button>
+    <button class="tab-btn" onclick="switchSubTab('conclusao-resumida', this)">Resumida</button>
   </div>
 
-  <div id="content-conclusao-geral" class="tab-content">
-    <!-- include: conclusao_geral.html -->
+  <div id="content-conclusao-geral" class="tab-content" style="display:block;">
+    <div class="card">
+      <h3 style="color:var(--accent-cyan);margin-bottom:12px;">Por que escolher AIWA?</h3>
+      <p style="color:var(--text-secondary);line-height:1.7;">A AIWA une tradição japonesa desde 1951 com tecnologia atual. Nossos produtos entregam potência real, durabilidade e preço justo.</p>
+    </div>
+    <div class="card">
+      <h3 style="color:var(--accent-magenta);margin-bottom:12px;">Diferenciais que vendem</h3>
+      <p style="color:var(--text-secondary);line-height:1.7;">200W RMS reais na bateria, IP66, 30 horas de autonomia, Bluetooth 5.3, App próprio, TWS e Bass Boost. Nenhuma concorrente entrega tudo isso pelo mesmo preço.</p>
+    </div>
+    <div class="card">
+      <h3 style="color:var(--accent-yellow);margin-bottom:12px;">Experiência do cliente</h3>
+      <p style="color:var(--text-secondary);line-height:1.7;">Do churrasco à praia, do quarto à piscina, a AIWA acompanha o cliente em todos os momentos com qualidade e resistência.</p>
+    </div>
+    <div class="card">
+      <h3 style="color:var(--accent-cyan);margin-bottom:12px;">Pós-venda e relacionamento</h3>
+      <p style="color:var(--text-secondary);line-height:1.7;">Garantia nacional, rede de suporte do Grupo MK e promotores presentes no PDV. O cliente não fica sozinho depois da compra.</p>
+    </div>
+    <div class="card">
+      <h3 style="color:var(--accent-green);margin-bottom:12px;">Relação custo-benefício</h3>
+      <p style="color:var(--text-secondary);line-height:1.7;">Tecnologia premium, preço intermediário. O cliente leva mais por menos, e você vende com mais margem e menos objeção.</p>
+    </div>
   </div>
 
-  <div id="content-relacionamento" class="tab-content" style="display:none;">
-    <!-- include: relacionamento.html -->
+  <div id="content-conclusao-resumida" class="tab-content" style="display:none;">
+    <div class="card">
+      <h3 style="color:var(--accent-cyan);margin-bottom:16px;">Resumo em 6 Pontos</h3>
+      <ul style="color:var(--text-secondary);line-height:2;font-size:14px;list-style:none;padding:0;">
+        <li>✔ <b style="color:var(--text-primary);">Potência real:</b> 200W RMS sem quedas</li>
+        <li>✔ <b style="color:var(--text-primary);">Proteção IP66:</b> poeira e água</li>
+        <li>✔ <b style="color:var(--text-primary);">30h de bateria</b> + powerbank</li>
+        <li>✔ <b style="color:var(--text-primary);">Bluetooth 5.3</b> + TWS + App</li>
+        <li>✔ <b style="color:var(--text-primary);">Preço 20-40%</b> abaixo das concorrentes</li>
+        <li>✔ <b style="color:var(--text-primary);">Garantia nacional</b> Grupo MK</li>
+      </ul>
+    </div>
   </div>
-
-  <div id="content-venda" class="tab-content" style="display:none;">
-    <!-- include: venda_consultiva.html -->
-  </div>
-
 </div>
