@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="theme-color" content="#0a0e27">
+  <meta name="description" content="AIWA Playbook V2 — Treinamento, Tecnologias e Comparativos">
+  <title>AIWA Playbook V2</title>
+  <link rel="manifest" href="manifest.json">
+  <link rel="icon" type="image/png" href="assets/logos/aiwa-logo-header.png">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/header.css">
+</head>
+<body class="dark has-aiwa-header">
+
+  <!-- HEADER FIXO COM LOGO OFICIAL -->
+  <header class="aiwa-header" id="aiwaHeader">
+    <img src="assets/logos/aiwa-logo-header.png" alt="AIWA — Japanese Technology Since 1951">
+  </header>
+
+  <div class="app-screen">
+
+    <!-- APP HEADER -->
+    <div class="app-header">
+      <button class="back-btn" onclick="goToHome()" title="Voltar">←</button>
+      <h1 id="matrixPageTitle">Início</h1>
+      <button class="theme-btn" id="themeToggle" title="Alternar Tema">🌓</button>
+    </div>
+
+    <!-- DATETIME -->
+    <div id="datetime" class="datetime-bar"></div>
+
+    <!-- DICA DE CAMPO -->
+    <div class="tip-box">
+      <div class="tip-header">
+        <span>💡 Dica de Campo</span>
+        <div class="tip-dots">
+          <span class="dot active"></span>
+          <span class="dot"></span>
+          <span class="dot"></span>
+          <span class="dot"></span>
+          <span class="dot"></span>
+        </div>
+        <button id="nextTipBtn" title="Próxima dica">→</button>
+      </div>
+      <p id="tipDescText" class="tip-text"></p>
+    </div>
+
+    <!-- PÁGINAS SPA -->
+
+    <!-- HOME -->
+    <div id="page-home" class="app-page active-page">
+      <div class="home-grid">
+        <div class="home-card" onclick="switchPage('page-historias','Histórias')">
+          <div class="card-icon">📖</div>
+          <h3>Histórias</h3>
+          <p>5 narrativas de vendas reais</p>
+        </div>
+        <div class="home-card" onclick="switchPage('page-tecnologias','Tecnologias')">
+          <div class="card-icon">⚙️</div>
+          <h3>Tecnologias</h3>
+          <p>6 tecnologias AIWA detalhadas</p>
+        </div>
+        <div class="home-card" onclick="switchPage('page-pilares','3 Pilares')">
+          <div class="card-icon">🏛️</div>
+          <h3>3 Pilares</h3>
+          <p>Qualidade, Confiança e Inovação</p>
+        </div>
+        <div class="home-card" onclick="switchPage('page-comparativos','Comparativos')">
+          <div class="card-icon">⚖️</div>
+          <h3>Comparativos</h3>
+          <p>AIWA vs Concorrentes</p>
+        </div>
+        <div class="home-card" onclick="switchPage('page-conclusoes','Conclusões')">
+          <div class="card-icon">✅</div>
+          <h3>Conclusões</h3>
+          <p>Resumo e argumentos finais</p>
+        </div>
+        <div class="home-card" onclick="switchPage('page-sobre','Sobre')">
+          <div class="card-icon">ℹ️</div>
+          <h3>Sobre</h3>
+          <p>A marca e o Promotor</p>
+        </div>
+        <div class="home-card highlight" onclick="switchPage('page-assistente','Assistente AIWA')">
+          <div class="card-icon">🤖</div>
+          <h3>Assistente AIWA</h3>
+          <p>Tire dúvidas em tempo real</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- HISTÓRIAS -->
+    <div id="page-historias" class="app-page"></div>
+
+    <!-- TECNOLOGIAS -->
+    <div id="page-tecnologias" class="app-page"></div>
+
+    <!-- 3 PILARES -->
+    <div id="page-pilares" class="app-page"></div>
+
+    <!-- COMPARATIVOS -->
+    <div id="page-comparativos" class="app-page"></div>
+
+    <!-- CONCLUSÕES -->
+    <div id="page-conclusoes" class="app-page"></div>
+
+    <!-- SOBRE -->
+    <div id="page-sobre" class="app-page"></div>
+
+    <!-- ASSISTENTE -->
+    <div id="page-assistente" class="app-page"></div>
+
+    <!-- NAV INFERIOR -->
+    <nav class="bottom-nav">
+      <button id="nav-home" class="nav-btn active" onclick="switchPage('page-home','Início')">
+        <span class="nav-icon">🏠</span>
+        <span class="nav-label">Início</span>
+      </button>
+      <button id="nav-historias" class="nav-btn" onclick="switchPage('page-historias','Histórias')">
+        <span class="nav-icon">📖</span>
+        <span class="nav-label">Histórias</span>
+      </button>
+      <button id="nav-tecnologias" class="nav-btn" onclick="switchPage('page-tecnologias','Tecnologias')">
+        <span class="nav-icon">⚙️</span>
+        <span class="nav-label">Tecnologias</span>
+      </button>
+      <button id="nav-assistente" class="nav-btn" onclick="switchPage('page-assistente','Assistente')">
+        <span class="nav-icon">🤖</span>
+        <span class="nav-label">Assistente</span>
+      </button>
+      <button id="nav-sobre" class="nav-btn" onclick="switchPage('page-sobre','Sobre')">
+        <span class="nav-icon">ℹ️</span>
+        <span class="nav-label">Sobre</span>
+      </button>
+    </nav>
+
+  </div>
+
+  <script src="js/database.js"></script>
+  <script src="js/comparativos.js"></script>
+  <script src="js/app.js"></script>
+  <script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('sw.js').then(() => {
+        console.log('[PWA] Service Worker registrado');
+      }).catch(err => {
+        console.error('[PWA] Erro no SW:', err);
+      });
+    }
+  </script>
+</body>
+</html>

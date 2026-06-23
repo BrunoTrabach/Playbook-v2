@@ -1,0 +1,44 @@
+<div id="page-conclusoes" class="app-page">
+
+  <h2 class="section-title">
+    🎯 Conclusões
+  </h2>
+
+  <div class="tabs-container">
+
+    <button
+      class="tab-btn active-tab"
+      onclick="switchSubTab('conclusao-geral', this)"
+    >
+      Resumo Geral
+    </button>
+
+    <button
+      class="tab-btn"
+      onclick="switchSubTab('relacionamento', this)"
+    >
+      Relacionamento
+    </button>
+
+    <button
+      class="tab-btn"
+      onclick="switchSubTab('venda', this)"
+    >
+      Venda Consultiva
+    </button>
+
+  </div>
+
+  <div id="content-conclusao-geral" class="tab-content">
+    <!-- include: conclusao_geral.html -->
+  </div>
+
+  <div id="content-relacionamento" class="tab-content" style="display:none;">
+    <!-- include: relacionamento.html -->
+  </div>
+
+  <div id="content-venda" class="tab-content" style="display:none;">
+    <!-- include: venda_consultiva.html -->
+  </div>
+
+</div>

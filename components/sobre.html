@@ -1,0 +1,33 @@
+<div id="page-sobre" class="app-page">
+
+  <h2 class="section-title">
+    🧭 Sobre
+  </h2>
+
+  <div class="tabs-container">
+
+    <button
+      class="tab-btn active-tab"
+      onclick="switchSubTab('sobre-aiwa', this)"
+    >
+      Sobre AIWA
+    </button>
+
+    <button
+      class="tab-btn"
+      onclick="switchSubTab('sobre-promotor', this)"
+    >
+      Sobre o Promotor
+    </button>
+
+  </div>
+
+  <div id="content-sobre-aiwa" class="tab-content">
+    <!-- include: sobre_aiwa.html -->
+  </div>
+
+  <div id="content-sobre-promotor" class="tab-content" style="display:none;">
+    <!-- include: sobre_promotor.html -->
+  </div>
+
+</div>

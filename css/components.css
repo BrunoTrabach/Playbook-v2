@@ -1,0 +1,241 @@
+/* ========================================
+   AIWA PLAYBOOK V2 - COMPONENTS STYLES
+   ======================================== */
+
+/* --- SEÇÕES & BRANDS --- */
+.aiwa-brand {
+  margin-bottom: 22px;
+}
+.aiwa-logo {
+  color: var(--accent-red);
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+}
+.aiwa-sub {
+  font-size: 8px;
+  color: var(--text-muted);
+  letter-spacing: 0.5px;
+  margin-top: 2px;
+}
+.playbook-title {
+  font-size: 30px;
+  font-weight: 800;
+  color: var(--text-primary);
+  margin-top: 4px;
+  letter-spacing: -0.5px;
+}
+.greeting {
+  color: var(--text-secondary);
+  font-size: 14px;
+  margin-top: 4px;
+}
+.datetime-right {
+  text-align: right;
+  font-size: 11px;
+  color: var(--text-secondary);
+  margin-top: 8px;
+  font-family: monospace;
+}
+.section-title {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--text-secondary);
+  margin: 24px 0 12px 0;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* --- TEAM & PROFILES --- */
+.profiles-container {
+  background: var(--bg-card);
+  border: 1.5px solid var(--border-neon-red);
+  border-radius: 20px;
+  padding: 16px;
+  display: flex;
+  justify-content: space-around;
+  box-shadow: var(--glow-red);
+  margin-bottom: 20px;
+}
+.profile-item {
+  text-align: center;
+  width: 72px;
+}
+.avatar {
+  width: 54px;
+  height: 54px;
+  border-radius: 50%;
+  border: 2px solid var(--avatar-border);
+  box-shadow: 0 0 8px var(--avatar-border);
+  object-fit: cover;
+  margin-bottom: 6px;
+  background: var(--bg-secondary);
+}
+.profile-name {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text-primary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.profile-role {
+  font-size: 10px;
+  color: var(--accent-red);
+  font-weight: 500;
+}
+
+/* --- CARD DICA DO DIA (CARROSSEL NEON) --- */
+.tip-card {
+  background: var(--bg-card);
+  border: 1.5px solid var(--border-neon-magenta);
+  border-radius: 20px;
+  padding: 16px;
+  margin: 20px 0 12px 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: var(--glow-magenta);
+}
+.tip-icon {
+  font-size: 28px;
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 204, 0, 0.12);
+  color: var(--accent-yellow);
+}
+.tip-text {
+  flex: 1;
+  margin-left: 14px;
+  padding-right: 8px;
+}
+.tip-label {
+  font-weight: 700;
+  color: var(--text-primary);
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+.tip-desc {
+  font-size: 12px;
+  color: var(--text-secondary);
+  margin-top: 4px;
+  line-height: 1.4;
+}
+.tip-next {
+  font-size: 24px;
+  color: var(--text-secondary);
+  cursor: pointer;
+  padding: 4px 8px;
+  user-select: none;
+  transition: 0.2s;
+}
+.tip-next:hover {
+  color: var(--accent-magenta);
+}
+.dot-indicators {
+  display: flex;
+  justify-content: center;
+  gap: 6px;
+  margin-bottom: 20px;
+}
+.dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--text-muted);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.dot.active {
+  width: 18px;
+  border-radius: 4px;
+  background: var(--accent-magenta);
+  box-shadow: var(--glow-magenta);
+}
+
+/* --- GRID DE BOTÕES DE CATEGORIAS --- */
+.grid-buttons {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin: 16px 0;
+}
+.grid-btn {
+  background: var(--bg-card);
+  border: 1px solid var(--border-neon-red);
+  border-radius: 18px;
+  padding: 16px 6px;
+  text-align: center;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  cursor: pointer;
+  user-select: none;
+}
+.grid-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--glow-red);
+}
+.grid-icon {
+  font-size: 26px;
+  margin-bottom: 6px;
+}
+.grid-label {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+/* --- MENU INFERIOR (FOOTER) --- */
+.nav-menu {
+  display: flex;
+  background: var(--bg-nav);
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  padding: 8px 10px 12px 10px;
+  gap: 6px;
+  z-index: 100;
+}
+body.light .nav-menu {
+  border-top: 1px solid rgba(0, 0, 0, 0.06);
+}
+.nav-btn {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3px;
+  cursor: pointer;
+  padding: 6px 2px;
+  border-radius: 14px;
+  transition: background 0.2s, color 0.2s;
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--text-secondary);
+}
+.nav-btn div {
+  font-size: 20px;
+}
+.nav-btn.active {
+  background: rgba(255, 60, 40, 0.10);
+  color: var(--accent-red);
+  font-weight: 600;
+}
+.nav-btn:hover {
+  background: rgba(255, 255, 255, 0.03);
+}
+body.light .nav-btn:hover {
+  background: rgba(0, 0, 0, 0.03);
+}
+.footer-credit {
+  text-align: center;
+  font-size: 9px;
+  color: var(--text-muted);
+  padding: 10px;
+  background: var(--bg-nav);
+  border-top: 1px solid rgba(255, 255, 255, 0.02);
+}
+

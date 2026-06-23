@@ -1,0 +1,16 @@
+<div class="page-wrapper">
+  <h2 class="page-title">📖 Histórias de Vendas</h2>
+  <p class="page-subtitle">Narrativas reais para treinamento e consulta</p>
+
+  <div class="tab-bar">
+    <button class="tab-btn active-tab" onclick="loadStory('hist1', this)">H1 — Abordagem</button>
+    <button class="tab-btn" onclick="loadStory('hist2', this)">H2 — Pós-venda</button>
+    <button class="tab-btn" onclick="loadStory('hist3', this)">H3 — Indicação</button>
+    <button class="tab-btn" onclick="loadStory('hist4', this)">H4 — Treinamento</button>
+    <button class="tab-btn" onclick="loadStory('hist_expandida', this)">Expandida</button>
+  </div>
+
+  <div id="story-container" class="story-container">
+    <div class="loading-story">Carregando história...</div>
+  </div>
+</div>
